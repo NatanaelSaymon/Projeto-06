@@ -34,31 +34,54 @@ header{
 }
 
 /* LOGO */
-div.logo{
-    float: left; /*Por padrão a div fica com display block, então temos q por float left*/
+
+
+/* div.logo{
+    float: left; 
     width: 160px;
     height: 40px;
     background-color: #ccc;
+} */
+
+
+label.logo{
+    float: left;
+    width: 160px;
+    color: #ffffff;
+    font-size: 35px;
+    /* padding: 0 100px; */
+    font-weight: bold;
 }
 
 /* MENU */
-header nav{
+header nav{ /*ambos vão flutuar pela direita*/
     float: right;
-    
 }
 
-header nav ul{
+header nav.mobile-menu{
+    display: none;
+}
+
+header nav.desktop-menu ul{
     list-style-type: none;
 }
 
-header nav li{
+header nav.desktop-menu li{
     float: left;
     margin: 0 20px;
 }
 
-header nav ul li a{
+header nav.desktop-menu ul li a{
     color: #FFFFFF;
     text-decoration: none;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+a.active, a:hover{
+    background-color: #472663;
+    transition: .5s;
 }
 
 /* CHAMADA1 */
@@ -85,43 +108,53 @@ section.sessao1{
     width: 100%;
     background-color: #472663;
     padding: 0px 2%;
+    height: 400px;
 }
 
 section.sessao1 .container{
-
+    max-width: 1000px;
 }
 
 .texto-sessao1{
     float: left;
+    width: 50%;
+    position: relative;
+    left: 55px;
+    margin-top: 60px;
+    padding-left: 80px;
     color: #FFFFFF;
 }
 
 .texto-sessao1 h2{
+    font-size: 26px;
     font-weight: 300;
 }
 
 .texto-sessao1 p{
-    font-size:  13px;
+    font-size:  15px;
     margin-top: 20px;
 }
 
 .texto-sessao1 ul{
-    font-size: 13px;
+    font-size: 15px;
     list-style-position: inside; /*Faz com q a bolinha n fique para fora*/
 }
 
-/* .texto-sessao1 ul{
+.texto-sessao1 ul li{
     float: left;
     width: 100%;
-} */
+    margin-top: 8px;
+}
 
 .device-sessao1{
-    float: left;
+    float: right;
     width: 50%;
-    height: 300px;
+    height: 430px;
+    position: relative;
+    top: -30px;
     background-image: url('../img/mobile.png');
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-size: 100% 100%;
 }
 
 input{
@@ -136,3 +169,87 @@ input{
     border-radius: 20px;
     cursor: pointer;
 }
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 980px){
+    label.logo{
+        font-size: 30px;
+        /* padding-left: 50px; */
+    }
+}
+
+@media screen and (max-width: 768px){
+
+    header{
+        width: 100%;
+        height: auto;
+        min-height: 90vh;
+        padding: 40px 2%;
+        /* max-height: 700px; */
+        background-image: url('../img/capa.png');
+        background-size: cover;
+        background-position: center;
+        font-weight: 300;
+    }
+
+    header nav.desktop-menu{
+        display: none;
+    }
+
+    header nav.mobile-menu{
+        display: block;
+    }
+
+    div.chamada1{
+        max-width: none;
+        width: 100%;
+        text-align: center;
+        float: none;
+        margin: 100px 0;
+    }
+    
+    div.chamada1 h2{
+        font-weight: 300;
+        font-size: 30px;
+        padding: 0 0px;
+        color: #FFFFFF;
+    }
+    
+    div.chamada1 p{
+        font-size: 15px;
+        color: #FFFFFF;
+        margin-top: 10px;
+    }
+    
+    section.sessao1{
+        padding: 40px 2%;
+        height: auto;
+        text-align: center;
+    }
+
+    .texto-sessao1{
+        width: 100%;
+        margin-top: 0;
+        padding-left: 0;
+        position: static;
+        float: none;
+        display: inline-block;
+    }
+
+    .texto-sessao1 ul{
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+    .texto-sessao1 ul li{
+        float: none;
+        text-align: left;
+    }
+
+    .device-sessao1{
+        display: none;
+    }
+}
+
+ 
